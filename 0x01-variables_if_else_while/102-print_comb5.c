@@ -1,43 +1,38 @@
 #include <stdio.h>
-
 /**
- * main - Entry point
- *
- * Return: Always 0 (Succes)
+ * main - Prints multiple combinations
+ * Description: Write a program that prints all possible
+ * Return: 0
  */
-
 int main(void)
 {
-	int tho;
-	int hun;
-	int ten;
-	int bas;
+	int a, b, c, d;
 
-for ( tho = 0 ; tho < 10 ; tho++)
-{	
-
-	for (hun = 0 ; hun <= 10 ; hun++)
+	for (a = '0'; a <= '9'; a++)
 	{
-	
-		for (ten = 0 ; ten < 10 ; ten++)
+		for (b = '0'; b <= '9'; b++)
 		{
-			for ( bas = 0 ; bas < 10 ; bas++)
+			for (c = '0'; c <= '9'; c++)
 			{
-				putchar('0' + tho);
-				putchar('0' + hun);
-				putchar(32);
-				putchar('0' + ten);
-				putchar('0' + bas);
-				if (!(tho == 9 && hun == 8))
+				for (d = '0'; d <= '9'; d++)
 				{
-					putchar(',');
-					putchar(32);
+					if ((a < c) || (a == c && b < d))
+					{
+						putchar(a);
+						putchar(b);
+						putchar(' ');
+						putchar(c);
+						putchar(d);
+					if (!(a == '9' && b == '8'))
+					{
+						putchar(',');
+						putchar(' ');
+					}
+					}
 				}
-				bas++;
 			}
 		}
 	}
-}
 	putchar('\n');
 	return (0);
 }
